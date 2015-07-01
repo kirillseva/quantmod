@@ -672,7 +672,8 @@ function(Symbols,env,return.class='xts',
                             Symbols[[i]],"/",
                             "downloaddata/",
                             Symbols[[i]],".csv",sep=""),
-                            destfile=tmp,quiet=!verbose)
+                            destfile=tmp,quiet=!verbose
+                            ,method='curl')
        fr <- read.csv(tmp,na.string=".")
        if(verbose) cat("done.\n")
        fr <- xts(as.matrix(fr[,-1]),
